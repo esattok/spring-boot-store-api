@@ -9,11 +9,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class StoreApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+        ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
         var orderService = context.getBean(OrderService.class);
-        var orderService2 = context.getBean(OrderService.class);
         orderService.placeOrder();
-        context.close();
     }
 
 }
