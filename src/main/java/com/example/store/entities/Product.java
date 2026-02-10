@@ -1,18 +1,17 @@
 package com.example.store.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "products")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-@Builder
+@Entity
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +21,14 @@ public class Product {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "price")
     private BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    @ToString.Exclude
     private Category category;
+
 }
