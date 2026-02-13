@@ -30,7 +30,7 @@ public class Profile {
     @Column(name = "loyalty_points")
     private Integer loyaltyPoints;
 
-    @OneToOne
+    @OneToOne()
     @JoinColumn(name = "id")
     @MapsId
     @ToString.Exclude
